@@ -1,0 +1,157 @@
+tr:
+  site_settings:
+    discoursemap_enabled: "Güvenlik Tarayıcısını Etkinleştir"
+  discoursemap_auto_scan_enabled: "Otomatik güvenlik taramalarını etkinleştir"
+  discoursemap_scan_frequency: "Tarama sıklığı (saat)"
+  discoursemap_notification_enabled: "Tarama bildirimlerini etkinleştir"
+  discoursemap_notification_threshold: "Bildirim eşiği (kritik/yüksek/orta/düşük)"
+  discoursemap_history_retention_days: "Geçmiş saklama süresi (gün)"
+  discoursemap_rate_limit_requests: "Hız sınırı (dakika başına istek)"
+  discoursemap_timeout_seconds: "İstek zaman aşımı (saniye)"
+  discoursemap_user_agent: "Özel User-Agent dizesi"
+  discoursemap_follow_redirects: "HTTP yönlendirmelerini takip et"
+  discoursemap_verify_ssl: "SSL sertifikalarını doğrula"
+  discoursemap_include_plugins: "Eklenti taramasını dahil et"
+  discoursemap_include_themes: "Tema taramasını dahil et"
+  discoursemap_include_users: "Kullanıcı numaralandırmasını dahil et"
+  discoursemap_include_endpoints: "Endpoint keşfini dahil et"
+  discoursemap_include_config: "Yapılandırma kontrollerini dahil et"
+  discoursemap_aggressive_mode: "Agresif tarama modunu etkinleştir"
+  discoursemap_report_format: "Varsayılan rapor formatı"
+  discoursemap_export_enabled: "Sonuç dışa aktarımını etkinleştir"
+  discoursemap_export_formats: "Mevcut dışa aktarım formatları"
+  discoursemap_api_access_enabled: "API erişimini etkinleştir"
+  discoursemap_api_key_required: "Erişim için API anahtarı gerektir"
+  discoursemap_webhook_url: "Bildirimler için Webhook URL'si"
+  discoursemap_webhook_events: "Gönderilecek webhook olayları"
+  discoursemap_vulnerability_threshold_critical: "Kritik güvenlik açığı eşiği"
+  discoursemap_vulnerability_threshold_high: "Yüksek güvenlik açığı eşiği"
+  discoursemap_vulnerability_threshold_medium: "Orta güvenlik açığı eşiği"
+  discoursemap_exclude_paths: "Taramadan hariç tutulacak yollar"
+  discoursemap_exclude_plugins: "Taramadan hariç tutulacak eklentiler"
+  discoursemap_exclude_themes: "Taramadan hariç tutulacak temalar"
+  discoursemap_custom_headers: "Özel HTTP başlıkları (JSON formatı)"
+  discoursemap_proxy_enabled: "Proxy desteğini etkinleştir"
+  discoursemap_proxy_host: "Proxy sunucusu"
+  discoursemap_proxy_port: "Proxy portu"
+  discoursemap_proxy_username: "Proxy kullanıcı adı"
+  discoursemap_proxy_password: "Proxy şifresi"
+  discoursemap_logging_level: "Günlük seviyesi"
+  discoursemap_concurrent_requests: "Maksimum eşzamanlı istek"
+  discoursemap_retry_attempts: "Başarısız istekler için yeniden deneme"
+  discoursemap_retry_delay: "Yeniden denemeler arası gecikme (saniye)"
+  discoursemap_database_update_frequency: "Güvenlik açığı veritabanı güncelleme sıklığı (saat)"
+  discoursemap_metrics_enabled: "Metrik toplamayı etkinleştir"
+  discoursemap_metrics_retention_days: "Metrik saklama süresi (gün)"
+  
+  discoursemap:
+    errors:
+      not_enabled: "Güvenlik Tarayıcısı etkinleştirilmemiş"
+      invalid_target: "Geçersiz hedef URL sağlandı"
+      scan_in_progress: "Bir tarama zaten devam ediyor"
+      scan_not_found: "Tarama bulunamadı"
+      invalid_modules: "Geçersiz tarama modülleri belirtildi"
+      rate_limit_exceeded: "Hız sınırı aşıldı. Lütfen daha sonra tekrar deneyin."
+      timeout_error: "Tarama zaman aşımına uğradı"
+      network_error: "Tarama sırasında ağ hatası oluştu"
+      permission_denied: "İzin reddedildi"
+      invalid_format: "Geçersiz dışa aktarım formatı"
+      database_error: "Veritabanı hatası oluştu"
+      webhook_error: "Webhook teslimi başarısız oldu"
+      api_key_required: "Bu işlem için API anahtarı gerekli"
+      invalid_api_key: "Geçersiz API anahtarı sağlandı"
+      scan_failed: "Tarama tamamlanamadı"
+      export_failed: "Dışa aktarım başarısız oldu"
+      settings_update_failed: "Ayarları güncelleme başarısız oldu"
+      vulnerability_database_update_failed: "Güvenlik açığı veritabanını güncelleme başarısız oldu"
+    
+    messages:
+      scan_started: "Güvenlik taraması başarıyla başlatıldı"
+      scan_completed: "Güvenlik taraması tamamlandı"
+      scan_stopped: "Güvenlik taraması durduruldu"
+      results_exported: "Tarama sonuçları başarıyla dışa aktarıldı"
+      settings_updated: "Ayarlar başarıyla güncellendi"
+      vulnerability_database_updated: "Güvenlik açığı veritabanı başarıyla güncellendi"
+      scan_scheduled: "Otomatik tarama zamanlandı"
+      notification_sent: "Bildirim başarıyla gönderildi"
+      webhook_delivered: "Webhook başarıyla teslim edildi"
+    
+    scan_status:
+      pending: "Beklemede"
+      running: "Çalışıyor"
+      completed: "Tamamlandı"
+      failed: "Başarısız"
+      stopped: "Durduruldu"
+      timeout: "Zaman aşımı"
+    
+    severity_levels:
+      critical: "Kritik"
+      high: "Yüksek"
+      medium: "Orta"
+      low: "Düşük"
+      info: "Bilgi"
+    
+    scan_modules:
+      vulnerability_scanner:
+        name: "Güvenlik Açığı Tarayıcısı"
+        description: "Discourse çekirdeği ve eklentilerindeki bilinen güvenlik açıklarını tarar"
+      plugin_scanner:
+        name: "Eklenti Tarayıcısı"
+        description: "Yüklü eklentileri güvenlik sorunları ve açıkları için analiz eder"
+      theme_scanner:
+        name: "Tema Tarayıcısı"
+        description: "Temaları potansiyel güvenlik riskleri ve açıkları için inceler"
+      user_scanner:
+        name: "Kullanıcı Tarayıcısı"
+        description: "Kullanıcı numaralandırması yapar ve potansiyel güvenlik sorunlarını tespit eder"
+      endpoint_scanner:
+        name: "Endpoint Tarayıcısı"
+        description: "Mevcut endpoint'leri keşfeder ve güvenlik sorunları için analiz eder"
+      config_scanner:
+        name: "Yapılandırma Tarayıcısı"
+        description: "Sistem yapılandırmasını güvenlik yanlış yapılandırmaları için kontrol eder"
+      database_scanner:
+        name: "Veritabanı Tarayıcısı"
+        description: "Veritabanı yapılandırması ve güvenlik ayarlarını analiz eder"
+      file_scanner:
+        name: "Dosya Tarayıcısı"
+        description: "Hassas dosyalar ve yedek dosyalar için tarama yapar"
+      network_scanner:
+        name: "Ağ Tarayıcısı"
+        description: "Ağ seviyesinde güvenlik kontrolleri ve port taraması yapar"
+    
+    notifications:
+      critical_issues_found:
+        title: "Kritik Güvenlik Sorunları Bulundu"
+        message: "Güvenlik taraması acil müdahale gerektiren %{count} kritik sorun buldu."
+      high_issues_found:
+        title: "Yüksek Öncelikli Güvenlik Sorunları Bulundu"
+        message: "Güvenlik taraması yakında ele alınması gereken %{count} yüksek öncelikli sorun buldu."
+      scan_completed:
+        title: "Güvenlik Taraması Tamamlandı"
+        message: "Güvenlik taraması toplam %{total} sorun bularak tamamlandı (%{critical} kritik, %{high} yüksek öncelikli)."
+      scan_failed:
+        title: "Güvenlik Taraması Başarısız"
+        message: "Güvenlik taraması tamamlanamadı: %{error}"
+      database_updated:
+        title: "Güvenlik Açığı Veritabanı Güncellendi"
+        message: "Güvenlik açığı veritabanı %{count} yeni güvenlik açığı ile güncellendi."
+    
+    job_names:
+      security_scan: "Güvenlik Taraması"
+      cleanup_job_status: "İş Durumu Temizleme"
+      update_vulnerability_database: "Güvenlik Açığı Veritabanını Güncelle"
+    
+    export_formats:
+      json: "JSON"
+      csv: "CSV"
+      pdf: "PDF"
+      xml: "XML"
+      html: "HTML"
+    
+    webhook_events:
+      scan_completed: "Tarama Tamamlandı"
+      critical_issues_found: "Kritik Sorunlar Bulundu"
+      high_issues_found: "Yüksek Sorunlar Bulundu"
+      scan_failed: "Tarama Başarısız"
+      database_updated: "Veritabanı Güncellendi"

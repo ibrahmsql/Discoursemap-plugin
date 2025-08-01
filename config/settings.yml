@@ -1,0 +1,358 @@
+plugins:
+  discoursemap_enabled:
+    default: true
+    client: true
+    type: bool
+    description: "Enable the DiscourseMap plugin"
+  category: "DiscourseMap"
+    
+  security_auto_scan_enabled:
+    default: false
+    client: false
+    type: bool
+    description: "Enable automatic scheduled security scans"
+    category: "DiscourseMap"
+    
+  security_scan_frequency:
+    default: "daily"
+    client: false
+    type: enum
+    choices:
+      - daily
+      - weekly
+      - monthly
+    description: "Frequency of automatic security scans"
+    category: "DiscourseMap"
+    
+  security_scan_notifications_enabled:
+    default: true
+    client: false
+    type: bool
+    description: "Send notifications when security issues are detected"
+    category: "DiscourseMap"
+    
+  security_scan_max_history:
+    default: 100
+    client: false
+    type: integer
+    min: 10
+    max: 1000
+    description: "Maximum number of scan results to keep in history"
+    category: "DiscourseMap"
+    
+  security_scan_rate_limit:
+    default: 1000
+    client: false
+    type: integer
+    min: 100
+    max: 10000
+    description: "Rate limit for security scan requests (milliseconds between requests)"
+    category: "DiscourseMap"
+    
+  security_scan_timeout:
+    default: 30
+    client: false
+    type: integer
+    min: 10
+    max: 300
+    description: "Timeout for individual scan requests (seconds)"
+    category: "DiscourseMap"
+    
+  security_scan_user_agent:
+    default: "Discourse-discoursemap/1.0"
+    client: false
+    type: string
+    description: "User agent string for security scan requests"
+    category: "DiscourseMap"
+    
+  security_scan_follow_redirects:
+    default: true
+    client: false
+    type: bool
+    description: "Follow HTTP redirects during security scans"
+    category: "DiscourseMap"
+    
+  security_scan_verify_ssl:
+    default: true
+    client: false
+    type: bool
+    description: "Verify SSL certificates during security scans"
+    category: "DiscourseMap"
+    
+  security_scan_max_redirects:
+    default: 5
+    client: false
+    type: integer
+    min: 1
+    max: 20
+    description: "Maximum number of redirects to follow"
+    category: "DiscourseMap"
+    
+  security_scan_include_plugins:
+    default: true
+    client: false
+    type: bool
+    description: "Include plugin scanning in security scans"
+    category: "DiscourseMap"
+    
+  security_scan_include_themes:
+    default: true
+    client: false
+    type: bool
+    description: "Include theme scanning in security scans"
+    category: "DiscourseMap"
+    
+  security_scan_include_users:
+    default: true
+    client: false
+    type: bool
+    description: "Include user enumeration in security scans"
+    category: "DiscourseMap"
+    
+  security_scan_include_endpoints:
+    default: true
+    client: false
+    type: bool
+    description: "Include endpoint discovery in security scans"
+    category: "DiscourseMap"
+    
+  security_scan_include_config:
+    default: true
+    client: false
+    type: bool
+    description: "Include configuration analysis in security scans"
+    category: "DiscourseMap"
+    
+  security_scan_aggressive_mode:
+    default: false
+    client: false
+    type: bool
+    description: "Enable aggressive scanning mode (may trigger rate limits)"
+    category: "DiscourseMap"
+    
+  security_scan_report_format:
+    default: "detailed"
+    client: false
+    type: enum
+    choices:
+      - summary
+      - detailed
+      - verbose
+    description: "Default format for security scan reports"
+    category: "DiscourseMap"
+    
+  security_scan_export_enabled:
+    default: true
+    client: false
+    type: bool
+    description: "Allow exporting scan results to external formats"
+    category: "DiscourseMap"
+    
+  security_scan_api_access:
+    default: "admin_only"
+    client: false
+    type: enum
+    choices:
+      - admin_only
+      - staff_only
+      - moderator_plus
+    description: "Who can access the DiscourseMap API"
+    category: "DiscourseMap"
+    
+  security_scan_webhook_url:
+    default: ""
+    client: false
+    type: string
+    description: "Webhook URL to send scan results (optional)"
+    category: "DiscourseMap"
+    
+  security_scan_webhook_enabled:
+    default: false
+    client: false
+    type: bool
+    description: "Enable webhook notifications for scan results"
+    category: "DiscourseMap"
+    
+  security_scan_critical_threshold:
+    default: 1
+    client: false
+    type: integer
+    min: 0
+    max: 100
+    description: "Number of critical issues that trigger immediate notifications"
+    category: "DiscourseMap"
+    
+  security_scan_high_threshold:
+    default: 5
+    client: false
+    type: integer
+    min: 0
+    max: 100
+    description: "Number of high-severity issues that trigger notifications"
+    category: "DiscourseMap"
+    
+  security_scan_exclude_patterns:
+    default: ""
+    client: false
+    type: string
+    description: "Comma-separated list of URL patterns to exclude from scanning"
+    category: "DiscourseMap"
+    
+  security_scan_custom_headers:
+    default: ""
+    client: false
+    type: string
+    description: "Custom HTTP headers for scan requests (JSON format)"
+    category: "DiscourseMap"
+    
+  security_scan_proxy_url:
+    default: ""
+    client: false
+    type: string
+    description: "Proxy URL for scan requests (optional)"
+    category: "DiscourseMap"
+    
+  security_scan_log_level:
+    default: "info"
+    client: false
+    type: enum
+    choices:
+      - debug
+      - info
+      - warn
+      - error
+    description: "Log level for DiscourseMap operations"
+    category: "DiscourseMap"
+    
+  security_scan_concurrent_requests:
+    default: 5
+    client: false
+    type: integer
+    min: 1
+    max: 20
+    description: "Maximum number of concurrent scan requests"
+    category: "DiscourseMap"
+    
+  security_scan_retry_attempts:
+    default: 3
+    client: false
+    type: integer
+    min: 1
+    max: 10
+    description: "Number of retry attempts for failed requests"
+    category: "DiscourseMap"
+    
+  security_scan_retry_delay:
+    default: 2
+    client: false
+    type: integer
+    min: 1
+    max: 30
+    description: "Delay between retry attempts (seconds)"
+    category: "DiscourseMap"
+    
+  security_scan_database_update_frequency:
+    default: "weekly"
+    client: false
+    type: enum
+    choices:
+      - daily
+      - weekly
+      - monthly
+      - manual
+    description: "Frequency of vulnerability database updates"
+    category: "DiscourseMap"
+    
+  security_scan_auto_update_database:
+    default: true
+    client: false
+    type: bool
+    description: "Automatically update vulnerability database"
+    category: "DiscourseMap"
+    
+  security_scan_include_cve_details:
+    default: true
+    client: false
+    type: bool
+    description: "Include detailed CVE information in scan results"
+    category: "DiscourseMap"
+    
+  security_scan_check_ssl_config:
+    default: true
+    client: false
+    type: bool
+    description: "Check SSL/TLS configuration during scans"
+    category: "DiscourseMap"
+    
+  security_scan_check_headers:
+    default: true
+    client: false
+    type: bool
+    description: "Check security headers during scans"
+    category: "DiscourseMap"
+    
+  security_scan_check_cookies:
+    default: true
+    client: false
+    type: bool
+    description: "Check cookie security settings during scans"
+    category: "DiscourseMap"
+    
+  security_scan_check_cors:
+    default: true
+    client: false
+    type: bool
+    description: "Check CORS configuration during scans"
+    category: "DiscourseMap"
+    
+  security_scan_check_csp:
+    default: true
+    client: false
+    type: bool
+    description: "Check Content Security Policy during scans"
+    category: "DiscourseMap"
+    
+  security_scan_whitelist_ips:
+    default: ""
+    client: false
+    type: string
+    description: "Comma-separated list of IP addresses allowed to perform scans"
+    category: "DiscourseMap"
+    
+  security_scan_blacklist_ips:
+    default: ""
+    client: false
+    type: string
+    description: "Comma-separated list of IP addresses blocked from scanning"
+    category: "DiscourseMap"
+    
+  security_scan_require_api_key:
+    default: false
+    client: false
+    type: bool
+    description: "Require API key for external scan requests"
+    category: "DiscourseMap"
+    
+  security_scan_api_key:
+    default: ""
+    client: false
+    type: string
+    secret: true
+    description: "API key for external scan requests"
+    category: "DiscourseMap"
+    
+  security_scan_enable_metrics:
+    default: true
+    client: false
+    type: bool
+    description: "Enable collection of scan metrics and statistics"
+    category: "DiscourseMap"
+    
+  security_scan_metrics_retention:
+    default: 90
+    client: false
+    type: integer
+    min: 7
+    max: 365
+    description: "Number of days to retain scan metrics"
+    category: "DiscourseMap"

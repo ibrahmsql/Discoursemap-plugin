@@ -1,0 +1,157 @@
+en:
+  site_settings:
+    discoursemap_enabled: "Enable DiscourseMap"
+  discoursemap_auto_scan_enabled: "Enable automatic security scans"
+  discoursemap_scan_frequency: "Scan frequency (hours)"
+  discoursemap_notification_enabled: "Enable scan notifications"
+  discoursemap_notification_threshold: "Notification threshold (critical/high/medium/low)"
+  discoursemap_history_retention_days: "History retention (days)"
+  discoursemap_rate_limit_requests: "Rate limit (requests per minute)"
+  discoursemap_timeout_seconds: "Request timeout (seconds)"
+  discoursemap_user_agent: "Custom User-Agent string"
+  discoursemap_follow_redirects: "Follow HTTP redirects"
+  discoursemap_verify_ssl: "Verify SSL certificates"
+  discoursemap_include_plugins: "Include plugin scanning"
+  discoursemap_include_themes: "Include theme scanning"
+  discoursemap_include_users: "Include user enumeration"
+  discoursemap_include_endpoints: "Include endpoint discovery"
+  discoursemap_include_config: "Include configuration checks"
+  discoursemap_aggressive_mode: "Enable aggressive scanning mode"
+  discoursemap_report_format: "Default report format"
+  discoursemap_export_enabled: "Enable result export"
+  discoursemap_export_formats: "Available export formats"
+  discoursemap_api_access_enabled: "Enable API access"
+  discoursemap_api_key_required: "Require API key for access"
+  discoursemap_webhook_url: "Webhook URL for notifications"
+  discoursemap_webhook_events: "Webhook events to send"
+  discoursemap_vulnerability_threshold_critical: "Critical vulnerability threshold"
+  discoursemap_vulnerability_threshold_high: "High vulnerability threshold"
+  discoursemap_vulnerability_threshold_medium: "Medium vulnerability threshold"
+  discoursemap_exclude_paths: "Paths to exclude from scanning"
+  discoursemap_exclude_plugins: "Plugins to exclude from scanning"
+  discoursemap_exclude_themes: "Themes to exclude from scanning"
+  discoursemap_custom_headers: "Custom HTTP headers (JSON format)"
+  discoursemap_proxy_enabled: "Enable proxy support"
+  discoursemap_proxy_host: "Proxy host"
+  discoursemap_proxy_port: "Proxy port"
+  discoursemap_proxy_username: "Proxy username"
+  discoursemap_proxy_password: "Proxy password"
+  discoursemap_logging_level: "Logging level"
+  discoursemap_concurrent_requests: "Maximum concurrent requests"
+  discoursemap_retry_attempts: "Retry attempts for failed requests"
+  discoursemap_retry_delay: "Delay between retries (seconds)"
+  discoursemap_database_update_frequency: "Vulnerability database update frequency (hours)"
+  discoursemap_metrics_enabled: "Enable metrics collection"
+  discoursemap_metrics_retention_days: "Metrics retention (days)"
+  
+  discoursemap:
+    errors:
+      not_enabled: "DiscourseMap is not enabled"
+      invalid_target: "Invalid target URL provided"
+      scan_in_progress: "A scan is already in progress"
+      scan_not_found: "Scan not found"
+      invalid_modules: "Invalid scan modules specified"
+      rate_limit_exceeded: "Rate limit exceeded. Please try again later."
+      timeout_error: "Scan timed out"
+      network_error: "Network error occurred during scan"
+      permission_denied: "Permission denied"
+      invalid_format: "Invalid export format"
+      database_error: "Database error occurred"
+      webhook_error: "Webhook delivery failed"
+      api_key_required: "API key required for this operation"
+      invalid_api_key: "Invalid API key provided"
+      scan_failed: "Scan failed to complete"
+      export_failed: "Export failed"
+      settings_update_failed: "Failed to update settings"
+      vulnerability_database_update_failed: "Failed to update vulnerability database"
+    
+    messages:
+      scan_started: "Security scan started successfully"
+      scan_completed: "Security scan completed"
+      scan_stopped: "Security scan stopped"
+      results_exported: "Scan results exported successfully"
+      settings_updated: "Settings updated successfully"
+      vulnerability_database_updated: "Vulnerability database updated successfully"
+      scan_scheduled: "Automatic scan scheduled"
+      notification_sent: "Notification sent successfully"
+      webhook_delivered: "Webhook delivered successfully"
+    
+    scan_status:
+      pending: "Pending"
+      running: "Running"
+      completed: "Completed"
+      failed: "Failed"
+      stopped: "Stopped"
+      timeout: "Timed out"
+    
+    severity_levels:
+      critical: "Critical"
+      high: "High"
+      medium: "Medium"
+      low: "Low"
+      info: "Information"
+    
+    scan_modules:
+      vulnerability_scanner:
+        name: "Vulnerability Scanner"
+        description: "Scans for known security vulnerabilities in Discourse core and plugins"
+      plugin_scanner:
+        name: "Plugin Scanner"
+        description: "Analyzes installed plugins for security issues and vulnerabilities"
+      theme_scanner:
+        name: "Theme Scanner"
+        description: "Examines themes for potential security risks and vulnerabilities"
+      user_scanner:
+        name: "User Scanner"
+        description: "Performs user enumeration and identifies potential security issues"
+      endpoint_scanner:
+        name: "Endpoint Scanner"
+        description: "Discovers and analyzes available endpoints for security issues"
+      config_scanner:
+        name: "Configuration Scanner"
+        description: "Checks system configuration for security misconfigurations"
+      database_scanner:
+        name: "Database Scanner"
+        description: "Analyzes database configuration and security settings"
+      file_scanner:
+        name: "File Scanner"
+        description: "Scans for sensitive files and backup files"
+      network_scanner:
+        name: "Network Scanner"
+        description: "Performs network-level security checks and port scanning"
+    
+    notifications:
+      critical_issues_found:
+        title: "Critical Security Issues Found"
+        message: "Security scan found %{count} critical issues that require immediate attention."
+      high_issues_found:
+        title: "High Priority Security Issues Found"
+        message: "Security scan found %{count} high priority issues that should be addressed soon."
+      scan_completed:
+        title: "Security Scan Completed"
+        message: "Security scan completed with %{total} total issues found (%{critical} critical, %{high} high priority)."
+      scan_failed:
+        title: "Security Scan Failed"
+        message: "Security scan failed to complete: %{error}"
+      database_updated:
+        title: "Vulnerability Database Updated"
+        message: "Vulnerability database updated with %{count} new vulnerabilities."
+    
+    job_names:
+      security_scan: "Security Scan"
+      cleanup_job_status: "Cleanup Job Status"
+      update_vulnerability_database: "Update Vulnerability Database"
+    
+    export_formats:
+      json: "JSON"
+      csv: "CSV"
+      pdf: "PDF"
+      xml: "XML"
+      html: "HTML"
+    
+    webhook_events:
+      scan_completed: "Scan Completed"
+      critical_issues_found: "Critical Issues Found"
+      high_issues_found: "High Issues Found"
+      scan_failed: "Scan Failed"
+      database_updated: "Database Updated"

@@ -1,0 +1,399 @@
+<div class="admin-container">
+  <div class="admin-nav pull-left">
+    {{admin-nav}}
+  </div>
+  <div class="admin-content">
+    <div class="discoursemap-admin">
+      <div class="admin-controls">
+        <div class="admin-controls-header">
+          <h2>{{i18n "admin.discoursemap.title"}}</h2>
+          <div class="controls">
+            {{#if model.scanning}}
+              <button class="btn btn-default" disabled>
+                {{loading-spinner size="small"}}
+                {{i18n "admin.discoursemap.scanning"}}
+              </button>
+            {{else}}
+              <button class="btn btn-primary" {{action "startScan"}}>
+                {{d-icon "shield-alt"}}
+                {{i18n "admin.discoursemap.start_scan"}}
+              </button>
+            {{/if}}
+            
+            {{#if model.lastScan}}
+              <button class="btn btn-default" {{action "downloadReport" "json"}}>
+                {{d-icon "download"}}
+                {{i18n "admin.discoursemap.download_json"}}
+              </button>
+              <button class="btn btn-default" {{action "downloadReport" "html"}}>
+                {{d-icon "file-alt"}}
+                {{i18n "admin.discoursemap.download_html"}}
+              </button>
+            {{/if}}
+          </div>
+        </div>
+        
+        <div class="admin-controls-description">
+          <p>{{i18n "admin.discoursemap.description"}}</p>
+        </div>
+      </div>
+
+      {{#if model.scanning}}
+        <div class="scan-progress">
+          <div class="progress-header">
+            <h3>{{i18n "admin.discoursemap.scan_in_progress"}}</h3>
+            <span class="progress-percentage">{{model.progress}}%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: {{model.progress}}%"></div>
+          </div>
+          <div class="current-module">
+            {{i18n "admin.discoursemap.scanning_module"}} {{model.currentModule}}
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if model.lastScan}}
+        <div class="scan-results">
+          <div class="results-header">
+            <h3>{{i18n "admin.discoursemap.last_scan_results"}}</h3>
+            <div class="scan-meta">
+              <span class="scan-date">
+                {{i18n "admin.discoursemap.scanned_on"}} 
+                {{format-date model.lastScan.completed_at}}
+              </span>
+              <span class="scan-duration">
+                {{i18n "admin.discoursemap.duration"}} 
+                {{model.lastScan.duration}}s
+              </span>
+            </div>
+          </div>
+
+          <div class="vulnerability-summary">
+            <div class="summary-cards">
+              <div class="summary-card risk-assessment">
+                <div class="card-header">
+                  <h4>{{i18n "admin.discoursemap.risk_assessment"}}</h4>
+                </div>
+                <div class="card-content">
+                  <div class="risk-score risk-{{model.lastScan.summary.risk_assessment.risk_level}}">
+                    <span class="score">{{model.lastScan.summary.risk_assessment.risk_score}}</span>
+                    <span class="label">{{model.lastScan.summary.risk_assessment.risk_level}}</span>
+                  </div>
+                  <div class="risk-details">
+                    <p>{{i18n "admin.discoursemap.total_vulnerabilities"}} {{model.lastScan.summary.risk_assessment.total_vulnerabilities}}</p>
+                    {{#if model.lastScan.summary.risk_assessment.requires_immediate_attention}}
+                      <p class="attention-required">
+                        {{d-icon "exclamation-triangle"}}
+                        {{i18n "admin.discoursemap.immediate_attention_required"}}
+                      </p>
+                    {{/if}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="summary-card vulnerability-breakdown">
+                <div class="card-header">
+                  <h4>{{i18n "admin.discoursemap.vulnerability_breakdown"}}</h4>
+                </div>
+                <div class="card-content">
+                  <div class="vulnerability-counts">
+                    <div class="count-item critical">
+                      <span class="count">{{model.lastScan.summary.vulnerability_summary.critical}}</span>
+                      <span class="label">{{i18n "admin.discoursemap.critical"}}</span>
+                    </div>
+                    <div class="count-item high">
+                      <span class="count">{{model.lastScan.summary.vulnerability_summary.high}}</span>
+                      <span class="label">{{i18n "admin.discoursemap.high"}}</span>
+                    </div>
+                    <div class="count-item medium">
+                      <span class="count">{{model.lastScan.summary.vulnerability_summary.medium}}</span>
+                      <span class="label">{{i18n "admin.discoursemap.medium"}}</span>
+                    </div>
+                    <div class="count-item low">
+                      <span class="count">{{model.lastScan.summary.vulnerability_summary.low}}</span>
+                      <span class="label">{{i18n "admin.discoursemap.low"}}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="summary-card compliance-status">
+                <div class="card-header">
+                  <h4>{{i18n "admin.discoursemap.compliance_status"}}</h4>
+                </div>
+                <div class="card-content">
+                  <div class="compliance-items">
+                    <div class="compliance-item">
+                      <span class="compliance-name">PCI DSS</span>
+                      <span class="compliance-status {{if model.lastScan.summary.compliance_status.pci_dss.compliant 'compliant' 'non-compliant'}}">
+                        {{#if model.lastScan.summary.compliance_status.pci_dss.compliant}}
+                          {{d-icon "check-circle"}} {{i18n "admin.discoursemap.compliant"}}
+                        {{else}}
+                          {{d-icon "times-circle"}} {{i18n "admin.discoursemap.non_compliant"}}
+                        {{/if}}
+                      </span>
+                    </div>
+                    <div class="compliance-item">
+                      <span class="compliance-name">OWASP</span>
+                      <span class="compliance-status {{if model.lastScan.summary.compliance_status.owasp.compliant 'compliant' 'non-compliant'}}">
+                        {{#if model.lastScan.summary.compliance_status.owasp.compliant}}
+                          {{d-icon "check-circle"}} {{i18n "admin.discoursemap.compliant"}}
+                        {{else}}
+                          {{d-icon "times-circle"}} {{i18n "admin.discoursemap.non_compliant"}}
+                        {{/if}}
+                      </span>
+                    </div>
+                    <div class="compliance-item">
+                      <span class="compliance-name">GDPR</span>
+                      <span class="compliance-status {{if model.lastScan.summary.compliance_status.gdpr.compliant 'compliant' 'non-compliant'}}">
+                        {{#if model.lastScan.summary.compliance_status.gdpr.compliant}}
+                          {{d-icon "check-circle"}} {{i18n "admin.discoursemap.compliant"}}
+                        {{else}}
+                          {{d-icon "times-circle"}} {{i18n "admin.discoursemap.non_compliant"}}
+                        {{/if}}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{#if model.lastScan.summary.recommendations}}
+            <div class="recommendations-section">
+              <h4>{{i18n "admin.discoursemap.recommendations"}}</h4>
+              <div class="recommendations-list">
+                {{#each model.lastScan.summary.recommendations as |recommendation|}}
+                  <div class="recommendation-item priority-{{recommendation.priority}}">
+                    <div class="recommendation-header">
+                      <span class="priority-badge">{{recommendation.priority}}</span>
+                      <span class="module-name">{{recommendation.module}}</span>
+                    </div>
+                    <div class="recommendation-text">
+                      {{recommendation.recommendation}}
+                    </div>
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          {{/if}}
+
+          <div class="detailed-results">
+            <h4>{{i18n "admin.discoursemap.detailed_results"}}</h4>
+            <div class="module-results">
+              {{#each model.lastScan.results as |moduleResult moduleName|}}
+                {{#if moduleResult.vulnerabilities}}
+                  <div class="module-result">
+                    <div class="module-header" {{action "toggleModule" moduleName}}>
+                      <h5>
+                        {{d-icon (if (get model.expandedModules moduleName) "chevron-down" "chevron-right")}}
+                        {{moduleName}}
+                        <span class="vulnerability-count">
+                          ({{moduleResult.vulnerabilities.length}} {{i18n "admin.discoursemap.issues"}})
+                        </span>
+                      </h5>
+                    </div>
+                    
+                    {{#if (get model.expandedModules moduleName)}}
+                      <div class="module-vulnerabilities">
+                        {{#each moduleResult.vulnerabilities as |vulnerability|}}
+                          <div class="vulnerability-item severity-{{vulnerability.severity}}">
+                            <div class="vulnerability-header">
+                              <span class="vulnerability-type">{{vulnerability.type}}</span>
+                              <span class="severity-badge severity-{{vulnerability.severity}}">
+                                {{vulnerability.severity}}
+                              </span>
+                            </div>
+                            <div class="vulnerability-description">
+                              {{vulnerability.description}}
+                            </div>
+                            {{#if vulnerability.recommendation}}
+                              <div class="vulnerability-recommendation">
+                                <strong>{{i18n "admin.discoursemap.recommendation"}}:</strong>
+                                {{vulnerability.recommendation}}
+                              </div>
+                            {{/if}}
+                            {{#if vulnerability.details}}
+                              <div class="vulnerability-details">
+                                <strong>{{i18n "admin.discoursemap.details"}}:</strong>
+                                <pre>{{vulnerability.details}}</pre>
+                              </div>
+                            {{/if}}
+                          </div>
+                        {{/each}}
+                      </div>
+                    {{/if}}
+                  </div>
+                {{/if}}
+              {{/each}}
+            </div>
+          </div>
+        </div>
+      {{else}}
+        <div class="no-scan-results">
+          <div class="empty-state">
+            {{d-icon "shield-alt" class="empty-icon"}}
+            <h3>{{i18n "admin.discoursemap.no_scans_yet"}}</h3>
+            <p>{{i18n "admin.discoursemap.no_scans_description"}}</p>
+            <button class="btn btn-primary" {{action "startScan"}}>
+              {{d-icon "play"}}
+              {{i18n "admin.discoursemap.run_first_scan"}}
+            </button>
+          </div>
+        </div>
+      {{/if}}
+
+      {{#if model.scanHistory}}
+        <div class="scan-history">
+          <h4>{{i18n "admin.discoursemap.scan_history"}}</h4>
+          <div class="history-table">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>{{i18n "admin.discoursemap.date"}}</th>
+                  <th>{{i18n "admin.discoursemap.duration"}}</th>
+                  <th>{{i18n "admin.discoursemap.vulnerabilities_found"}}</th>
+                  <th>{{i18n "admin.discoursemap.risk_level"}}</th>
+                  <th>{{i18n "admin.discoursemap.actions"}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each model.scanHistory as |scan|}}
+                  <tr>
+                    <td>{{format-date scan.completed_at}}</td>
+                    <td>{{scan.duration}}s</td>
+                    <td>{{scan.total_vulnerabilities}}</td>
+                    <td>
+                      <span class="risk-level risk-{{scan.risk_level}}">
+                        {{scan.risk_level}}
+                      </span>
+                    </td>
+                    <td>
+                      <button class="btn btn-small" {{action "viewScan" scan.id}}>
+                        {{d-icon "eye"}} {{i18n "admin.discoursemap.view"}}
+                      </button>
+                      <button class="btn btn-small" {{action "downloadScanReport" scan.id "json"}}>
+                        {{d-icon "download"}} JSON
+                      </button>
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      {{/if}}
+    </div>
+  </div>
+</div>
+                        </p>
+                      {{/if}}
+                      
+                      {{#if vulnerability.recommendation}}
+                        <div class="vulnerability-recommendation">
+                          <strong>{{i18n "admin.plugins.discoursemap.recommendation"}}:</strong>
+                          <p>{{vulnerability.recommendation}}</p>
+                        </div>
+                      {{/if}}
+                      
+                      {{#if vulnerability.references}}
+                        <div class="vulnerability-references">
+                          <strong>{{i18n "admin.plugins.discoursemap.references"}}:</strong>
+                          <ul>
+                            {{#each vulnerability.references as |reference|}}
+                              <li><a href="{{reference}}" target="_blank" rel="noopener">{{reference}}</a></li>
+                            {{/each}}
+                          </ul>
+                        </div>
+                      {{/if}}
+                    </div>
+                  {{/each}}
+                </div>
+              {{else}}
+                <p class="no-issues">{{i18n "admin.plugins.discoursemap.no_issues_found"}}</p>
+              {{/if}}
+              
+              {{#if moduleResult.results.info}}
+                <div class="module-info">
+                  <h5>{{i18n "admin.plugins.discoursemap.information"}}</h5>
+                  {{#each moduleResult.results.info as |info|}}
+                    <div class="info-item">
+                      <strong>{{info.name}}:</strong> {{info.value}}
+                    </div>
+                  {{/each}}
+                </div>
+              {{/if}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    {{/if}}
+    
+    {{#if this.hasRecentScans}}
+      <div class="scan-history">
+        <h3>{{i18n "admin.plugins.discoursemap.recent_scans"}}</h3>
+        
+        <div class="history-list">
+          {{#each this.recentScans as |scan|}}
+            <div class="history-item">
+              <div class="scan-info">
+                <div class="scan-target">{{scan.target_url}}</div>
+                <div class="scan-time">{{format-date scan.created_at}}</div>
+                <div class="scan-summary">
+                  {{scan.total_issues}} {{i18n "admin.plugins.discoursemap.issues"}} 
+                  ({{scan.critical_issues}} {{i18n "admin.plugins.discoursemap.critical"}}, 
+                   {{scan.high_issues}} {{i18n "admin.plugins.discoursemap.high"}})
+                </div>
+              </div>
+              
+              <div class="scan-actions">
+                <DButton 
+                  @action={{action "loadScanResults" scan.id}}
+                  @label="admin.plugins.discoursemap.view_results"
+                  @icon="eye"
+                  class="btn-small"
+                />
+                <DButton 
+                  @action={{action "deleteScan" scan.id}}
+                  @label="admin.plugins.discoursemap.delete"
+                  @icon="trash-alt"
+                  class="btn-small btn-danger"
+                />
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        
+        {{#if (gt this.scanHistory.length 5)}}
+          <div class="view-all-history">
+            <LinkTo @route="admin.plugins.discoursemap.history" class="btn btn-default">
+              {{i18n "admin.plugins.discoursemap.view_all_history"}}
+            </LinkTo>
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
+    
+    <div class="vulnerability-database-info">
+      <h3>{{i18n "admin.plugins.discoursemap.vulnerability_database"}}</h3>
+      
+      <div class="database-stats">
+        <p>
+          <strong>{{i18n "admin.plugins.discoursemap.total_vulnerabilities"}}:</strong> 
+          {{this.vulnerabilityCount}}
+        </p>
+        <p>
+          <strong>{{i18n "admin.plugins.discoursemap.last_updated"}}:</strong> 
+          {{this.lastDatabaseUpdate}}
+        </p>
+      </div>
+      
+      <DButton 
+        @action={{action "updateVulnerabilityDatabase"}}
+        @label="admin.plugins.discoursemap.update_database"
+        @icon="sync"
+        class="btn-default"
+      />
+    </div>
+  </div>
+</div>

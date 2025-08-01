@@ -1,0 +1,269 @@
+en:
+  js:
+    admin:
+      plugins:
+        discoursemap:
+          title: "DiscourseMap"
+          description: "Professional security audit tool for Discourse. Comprehensive vulnerability assessment and security analysis for your forum."
+          
+          # Navigation
+          menu_title: "DiscourseMap"
+          
+          # Scan Configuration
+          scan_configuration: "Scan Configuration"
+          target_url: "Target URL"
+          target_url_placeholder: "https://your-discourse-site.com"
+          invalid_url: "Please enter a valid URL"
+          
+          scan_modules: "Scan Modules"
+          select_all: "Select All"
+          deselect_all: "Deselect All"
+          
+          scan_options: "Scan Options"
+          aggressive_mode: "Aggressive Mode (More comprehensive but slower)"
+          include_low_severity: "Include Low Severity Issues"
+          follow_redirects: "Follow HTTP Redirects"
+          
+          # Scan Actions
+          start_scan: "Start Security Scan"
+          stop_scan: "Stop Scan"
+          scanning_in_progress: "Security Scan in Progress"
+          complete: "Complete"
+          
+          # Scan Results
+          scan_results: "Scan Results"
+          scan_time: "Scan Time"
+          duration: "Duration"
+          target: "Target"
+          
+          # Issue Severity
+          critical: "Critical"
+          high: "High"
+          medium: "Medium"
+          low: "Low"
+          info: "Info"
+          issues: "Issues"
+          
+          # Vulnerability Details
+          affected_versions: "Affected Versions"
+          recommendation: "Recommendation"
+          references: "References"
+          information: "Information"
+          no_issues_found: "No security issues found in this module"
+          
+          # Export
+          export_json: "Export JSON"
+          export_csv: "Export CSV"
+          export_pdf: "Export PDF"
+          
+          # Scan History
+          recent_scans: "Recent Scans"
+          view_results: "View Results"
+          delete: "Delete"
+          view_all_history: "View All History"
+          confirm_delete_scan: "Are you sure you want to delete this scan?"
+          
+          # Vulnerability Database
+          vulnerability_database: "Vulnerability Database"
+          total_vulnerabilities: "Total Vulnerabilities"
+          last_updated: "Last Updated"
+          update_database: "Update Database"
+          
+          # Settings
+          settings: "Settings"
+          general_settings: "General Settings"
+          scan_settings: "Scan Settings"
+          notification_settings: "Notification Settings"
+          export_settings: "Export Settings"
+          api_settings: "API Settings"
+          webhook_settings: "Webhook Settings"
+          proxy_settings: "Proxy Settings"
+          advanced_settings: "Advanced Settings"
+          
+          # Status Messages
+          settings_updated: "Settings updated successfully"
+          vulnerability_database_updated: "Vulnerability database updated successfully"
+          scan_started: "Security scan started"
+          scan_stopped: "Security scan stopped"
+          scan_completed: "Security scan completed"
+          
+          # Error Messages
+          errors:
+            target_url_required: "Target URL is required"
+            modules_required: "At least one scan module must be selected"
+            scan_failed: "Scan failed: %{error}"
+            network_error: "Network error occurred"
+            permission_denied: "Permission denied"
+            invalid_response: "Invalid response from server"
+            timeout_error: "Request timed out"
+            rate_limit_exceeded: "Rate limit exceeded. Please try again later."
+            export_failed: "Export failed"
+            settings_save_failed: "Failed to save settings"
+            database_update_failed: "Failed to update vulnerability database"
+          
+          # Module Descriptions
+          modules:
+            vulnerability_scanner:
+              name: "Güvenlik Açığı Tarayıcısı"
+              description: "Discourse çekirdeği ve yüklü eklentilerdeki bilinen güvenlik açıklarını tarar"
+            plugin_scanner:
+              name: "Eklenti Tarayıcısı"
+              description: "Yüklü eklentileri güvenlik sorunları, eski sürümler ve bilinen açıklar için analiz eder"
+            theme_scanner:
+              name: "Tema Tarayıcısı"
+              description: "Aktif temaları potansiyel güvenlik riskleri ve kötü amaçlı kod için inceler"
+            user_scanner:
+              name: "Kullanıcı Tarayıcısı"
+              description: "Kullanıcı hesaplarıyla ilgili potansiyel güvenlik sorunlarını tespit etmek için kullanıcı numaralandırması yapar"
+            endpoint_scanner:
+              name: "Endpoint Tarayıcısı"
+              description: "Mevcut endpoint'leri keşfeder ve güvenlik açıkları için analiz eder"
+            config_scanner:
+              name: "Yapılandırma Tarayıcısı"
+              description: "Sistem yapılandırmasını güvenlik yanlış yapılandırmaları ve en iyi uygulamalar için kontrol eder"
+            database_scanner:
+              name: "Veritabanı Tarayıcısı"
+              description: "Veritabanı yapılandırmasını analiz eder ve güvenlik sorunlarını kontrol eder"
+            file_scanner:
+              name: "Dosya Tarayıcısı"
+              description: "Hassas dosyalar, yedek dosyalar ve açığa çıkan yapılandırma dosyaları için tarama yapar"
+            network_scanner:
+              name: "Ağ Tarayıcısı"
+              description: "Port taraması ve servis tespiti dahil ağ seviyesinde güvenlik kontrolleri yapar"
+          
+          # Scan Progress
+          progress:
+            initializing: "Tarama başlatılıyor..."
+            scanning_core: "Discourse çekirdeği taranıyor..."
+            scanning_plugins: "Eklentiler taranıyor..."
+            scanning_themes: "Temalar taranıyor..."
+            scanning_users: "Kullanıcılar taranıyor..."
+            scanning_endpoints: "Endpoint'ler taranıyor..."
+            scanning_config: "Yapılandırma taranıyor..."
+            scanning_database: "Veritabanı taranıyor..."
+            scanning_files: "Dosyalar taranıyor..."
+            scanning_network: "Ağ taranıyor..."
+            generating_report: "Rapor oluşturuluyor..."
+            finalizing: "Tarama sonlandırılıyor..."
+          
+          # Vulnerability Types
+          vulnerability_types:
+            sql_injection: "SQL Enjeksiyonu"
+            xss: "Siteler Arası Betik (XSS)"
+            csrf: "Siteler Arası İstek Sahteciliği (CSRF)"
+            directory_traversal: "Dizin Geçişi"
+            file_inclusion: "Dosya Dahil Etme"
+            authentication_bypass: "Kimlik Doğrulama Atlama"
+            privilege_escalation: "Yetki Yükseltme"
+            information_disclosure: "Bilgi İfşası"
+            denial_of_service: "Hizmet Reddi"
+            remote_code_execution: "Uzaktan Kod Çalıştırma"
+            insecure_configuration: "Güvensiz Yapılandırma"
+            weak_authentication: "Zayıf Kimlik Doğrulama"
+            missing_security_headers: "Eksik Güvenlik Başlıkları"
+            ssl_tls_issues: "SSL/TLS Sorunları"
+            outdated_software: "Eski Yazılım"
+
+          
+          # Recommendations
+          recommendations:
+            update_discourse: "Discourse'u en son sürüme güncelleyin"
+            update_plugin: "Etkilenen eklentiyi en son sürüme güncelleyin"
+            disable_plugin: "Gerekli değilse etkilenen eklentiyi devre dışı bırakmayı düşünün"
+            review_configuration: "Yapılandırma ayarlarını gözden geçirin ve güncelleyin"
+            implement_security_headers: "Uygun güvenlik başlıklarını uygulayın"
+            update_ssl_configuration: "SSL/TLS yapılandırmasını güncelleyin"
+            review_user_permissions: "Kullanıcı izinlerini ve erişim kontrollerini gözden geçirin"
+            enable_two_factor: "İki faktörlü kimlik doğrulamayı etkinleştirin"
+            review_file_permissions: "Dosya ve dizin izinlerini gözden geçirin"
+            contact_developer: "Güvenlik güncellemesi için eklenti/tema geliştiricisiyle iletişime geçin"
+          
+          # Help Text
+          help:
+            aggressive_mode: "Agresif mod daha kapsamlı test yapar ancak daha uzun sürebilir ve daha fazla istek oluşturabilir"
+            target_url: "Protokol dahil (http:// veya https://) Discourse sitenizin tam URL'sini girin"
+            scan_modules: "Hangi güvenlik modüllerinin çalıştırılacağını seçin. Her modül güvenliğin farklı yönlerine odaklanır"
+            export_formats: "Tarama sonuçlarını dışa aktarmak için formatı seçin. JSON en ayrıntılı bilgiyi sağlar"
+            vulnerability_database: "Güvenlik açığı veritabanı Discourse ve popüler eklentiler için bilinen güvenlik sorunlarını içerir"
+          
+          # Tooltips
+          tooltips:
+            critical_severity: "Kritik güvenlik açıkları acil müdahale gerektirir ve önemli güvenlik riskleri oluşturur"
+            high_severity: "Yüksek önem dereceli sorunlar mümkün olan en kısa sürede ele alınmalıdır"
+            medium_severity: "Orta önem dereceli sorunlar gözden geçirilmeli ve zamanında ele alınmalıdır"
+            low_severity: "Düşük önem dereceli sorunlar küçüktür ancak iyileştirme için yine de düşünülmelidir"
+            info_severity: "Bilgilendirici bulgular güvenlikle ilgili yararlı bilgiler sağlar"
+          
+          # Buttons
+          buttons:
+            scan_now: "Şimdi Tara"
+            view_details: "Detayları Görüntüle"
+            export_results: "Sonuçları Dışa Aktar"
+            save_settings: "Ayarları Kaydet"
+            reset_settings: "Varsayılanlara Sıfırla"
+            update_now: "Şimdi Güncelle"
+            dismiss: "Kapat"
+            retry: "Yeniden Dene"
+            cancel: "İptal"
+            close: "Kapat"
+          
+          # Tables
+          table:
+            headers:
+              vulnerability: "Güvenlik Açığı"
+              severity: "Önem Derecesi"
+              affected_component: "Etkilenen Bileşen"
+              status: "Durum"
+              last_scan: "Son Tarama"
+              actions: "İşlemler"
+              scan_date: "Tarama Tarihi"
+              target_url: "Hedef URL"
+              total_issues: "Toplam Sorun"
+              duration: "Süre"
+            
+            empty_state: "Veri mevcut değil"
+            loading: "Yükleniyor..."
+          
+          # Filters
+          filters:
+            all_severities: "Tüm Önem Dereceleri"
+            all_modules: "Tüm Modüller"
+            all_statuses: "Tüm Durumlar"
+            filter_by_severity: "Önem Derecesine Göre Filtrele"
+            filter_by_module: "Modüle Göre Filtrele"
+            filter_by_status: "Duruma Göre Filtrele"
+            search_vulnerabilities: "Güvenlik açıklarını ara..."
+          
+          # Pagination
+          pagination:
+            previous: "Önceki"
+            next: "Sonraki"
+            page_info: "Sayfa %{current} / %{total}"
+            items_per_page: "Sayfa başına öğe"
+          
+          # Dashboard
+          dashboard:
+            title: "Güvenlik Panosu"
+            overview: "Güvenlik Genel Bakış"
+            recent_activity: "Son Aktivite"
+            quick_stats: "Hızlı İstatistikler"
+            security_score: "Güvenlik Puanı"
+            last_scan_date: "Son Tarama"
+            next_scheduled_scan: "Sonraki Zamanlanmış Tarama"
+            total_scans_performed: "Toplam Yapılan Tarama"
+            average_scan_duration: "Ortalama Tarama Süresi"
+            most_common_issues: "En Yaygın Sorunlar"
+            security_trends: "Güvenlik Eğilimleri"
+          
+          # Reports
+          reports:
+            executive_summary: "Yönetici Özeti"
+            technical_details: "Teknik Detaylar"
+            remediation_guide: "Düzeltme Kılavuzu"
+            risk_assessment: "Risk Değerlendirmesi"
+            compliance_status: "Uyumluluk Durumu"
+            generated_on: "Oluşturulma tarihi"
+            scan_summary: "Tarama Özeti"
+            findings_overview: "Bulgular Genel Bakış"
+            detailed_findings: "Detaylı Bulgular"
+            appendix: "Ek"

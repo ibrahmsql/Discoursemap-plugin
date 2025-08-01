@@ -1,0 +1,269 @@
+en:
+  js:
+    admin:
+      plugins:
+        discoursemap:
+          title: "DiscourseMap"
+          description: "Professional security auditing tool for Discourse. Comprehensive vulnerability assessment and security analysis for your forum."
+          
+          # Navigation
+          menu_title: "DiscourseMap"
+          
+          # Scan Configuration
+          scan_configuration: "Scan Configuration"
+          target_url: "Target URL"
+          target_url_placeholder: "https://your-discourse-site.com"
+          invalid_url: "Please enter a valid URL"
+          
+          scan_modules: "Scan Modules"
+          select_all: "Select All"
+          deselect_all: "Deselect All"
+          
+          scan_options: "Scan Options"
+          aggressive_mode: "Aggressive Mode (More thorough but slower)"
+          include_low_severity: "Include Low Severity Issues"
+          follow_redirects: "Follow HTTP Redirects"
+          
+          # Scan Actions
+          start_scan: "Start Security Scan"
+          stop_scan: "Stop Scan"
+          scanning_in_progress: "Security Scan in Progress"
+          complete: "Complete"
+          
+          # Scan Results
+          scan_results: "Scan Results"
+          scan_time: "Scan Time"
+          duration: "Duration"
+          target: "Target"
+          
+          # Issue Severity
+          critical: "Critical"
+          high: "High"
+          medium: "Medium"
+          low: "Low"
+          info: "Information"
+          issues: "Issues"
+          
+          # Vulnerability Details
+          affected_versions: "Affected Versions"
+          recommendation: "Recommendation"
+          references: "References"
+          information: "Information"
+          no_issues_found: "No security issues found in this module"
+          
+          # Export
+          export_json: "Export JSON"
+          export_csv: "Export CSV"
+          export_pdf: "Export PDF"
+          
+          # Scan History
+          recent_scans: "Recent Scans"
+          view_results: "View Results"
+          delete: "Delete"
+          view_all_history: "View All History"
+          confirm_delete_scan: "Are you sure you want to delete this scan?"
+          
+          # Vulnerability Database
+          vulnerability_database: "Vulnerability Database"
+          total_vulnerabilities: "Total Vulnerabilities"
+          last_updated: "Last Updated"
+          update_database: "Update Database"
+          
+          # Settings
+          settings: "Settings"
+          general_settings: "General Settings"
+          scan_settings: "Scan Settings"
+          notification_settings: "Notification Settings"
+          export_settings: "Export Settings"
+          api_settings: "API Settings"
+          webhook_settings: "Webhook Settings"
+          proxy_settings: "Proxy Settings"
+          advanced_settings: "Advanced Settings"
+          
+          # Status Messages
+          settings_updated: "Settings updated successfully"
+          vulnerability_database_updated: "Vulnerability database updated successfully"
+          scan_started: "Security scan started"
+          scan_stopped: "Security scan stopped"
+          scan_completed: "Security scan completed"
+          
+          # Error Messages
+          errors:
+            target_url_required: "Target URL is required"
+            modules_required: "At least one scan module must be selected"
+            scan_failed: "Scan failed: %{error}"
+            network_error: "Network error occurred"
+            permission_denied: "Permission denied"
+            invalid_response: "Invalid response from server"
+            timeout_error: "Request timed out"
+            rate_limit_exceeded: "Rate limit exceeded. Please try again later."
+            export_failed: "Export failed"
+            settings_save_failed: "Failed to save settings"
+            database_update_failed: "Failed to update vulnerability database"
+          
+          # Module Descriptions
+          modules:
+            vulnerability_scanner:
+              name: "Vulnerability Scanner"
+              description: "Scans for known security vulnerabilities in Discourse core and installed plugins"
+            plugin_scanner:
+              name: "Plugin Scanner"
+              description: "Analyzes installed plugins for security issues, outdated versions, and known vulnerabilities"
+            theme_scanner:
+              name: "Theme Scanner"
+              description: "Examines active themes for potential security risks and malicious code"
+            user_scanner:
+              name: "User Scanner"
+              description: "Performs user enumeration to identify potential security issues with user accounts"
+            endpoint_scanner:
+              name: "Endpoint Scanner"
+              description: "Discovers and analyzes available endpoints for security vulnerabilities"
+            config_scanner:
+              name: "Configuration Scanner"
+              description: "Checks system configuration for security misconfigurations and best practices"
+            database_scanner:
+              name: "Database Scanner"
+              description: "Analyzes database configuration and checks for security issues"
+            file_scanner:
+              name: "File Scanner"
+              description: "Scans for sensitive files, backup files, and exposed configuration files"
+            network_scanner:
+              name: "Network Scanner"
+              description: "Performs network-level security checks including port scanning and service detection"
+          
+          # Scan Progress
+          progress:
+            initializing: "Initializing scan..."
+            scanning_core: "Scanning Discourse core..."
+            scanning_plugins: "Scanning plugins..."
+            scanning_themes: "Scanning themes..."
+            scanning_users: "Scanning users..."
+            scanning_endpoints: "Scanning endpoints..."
+            scanning_config: "Scanning configuration..."
+            scanning_database: "Scanning database..."
+            scanning_files: "Scanning files..."
+            scanning_network: "Scanning network..."
+            generating_report: "Generating report..."
+            finalizing: "Finalizing scan..."
+          
+          # Vulnerability Types
+          vulnerability_types:
+            sql_injection: "SQL Injection"
+            xss: "Cross-Site Scripting (XSS)"
+            csrf: "Cross-Site Request Forgery (CSRF)"
+            directory_traversal: "Directory Traversal"
+            file_inclusion: "File Inclusion"
+            authentication_bypass: "Authentication Bypass"
+            privilege_escalation: "Privilege Escalation"
+            information_disclosure: "Information Disclosure"
+            denial_of_service: "Denial of Service"
+            remote_code_execution: "Remote Code Execution"
+            insecure_configuration: "Insecure Configuration"
+            weak_authentication: "Weak Authentication"
+            missing_security_headers: "Missing Security Headers"
+            ssl_tls_issues: "SSL/TLS Issues"
+            outdated_software: "Outdated Software"
+
+          
+          # Recommendations
+          recommendations:
+            update_discourse: "Update Discourse to the latest version"
+            update_plugin: "Update the affected plugin to the latest version"
+            disable_plugin: "Consider disabling the affected plugin if not essential"
+            review_configuration: "Review and update the configuration settings"
+            implement_security_headers: "Implement proper security headers"
+            update_ssl_configuration: "Update SSL/TLS configuration"
+            review_user_permissions: "Review user permissions and access controls"
+            enable_two_factor: "Enable two-factor authentication"
+            review_file_permissions: "Review file and directory permissions"
+            contact_developer: "Contact the plugin/theme developer for a security update"
+          
+          # Help Text
+          help:
+            aggressive_mode: "Aggressive mode performs more thorough testing but may take longer and generate more requests"
+            target_url: "Enter the full URL of your Discourse site including protocol (http:// or https://)"
+            scan_modules: "Select which security modules to run. Each module focuses on different aspects of security"
+            export_formats: "Choose the format for exporting scan results. JSON provides the most detailed information"
+            vulnerability_database: "The vulnerability database contains known security issues for Discourse and popular plugins"
+          
+          # Tooltips
+          tooltips:
+            critical_severity: "Critical vulnerabilities require immediate attention and pose significant security risks"
+            high_severity: "High severity issues should be addressed as soon as possible"
+            medium_severity: "Medium severity issues should be reviewed and addressed in a timely manner"
+            low_severity: "Low severity issues are minor but should still be considered for improvement"
+            info_severity: "Informational findings provide useful security-related information"
+          
+          # Buttons
+          buttons:
+            scan_now: "Scan Now"
+            view_details: "View Details"
+            export_results: "Export Results"
+            save_settings: "Save Settings"
+            reset_settings: "Reset to Defaults"
+            update_now: "Update Now"
+            dismiss: "Dismiss"
+            retry: "Retry"
+            cancel: "Cancel"
+            close: "Close"
+          
+          # Tables
+          table:
+            headers:
+              vulnerability: "Vulnerability"
+              severity: "Severity"
+              affected_component: "Affected Component"
+              status: "Status"
+              last_scan: "Last Scan"
+              actions: "Actions"
+              scan_date: "Scan Date"
+              target_url: "Target URL"
+              total_issues: "Total Issues"
+              duration: "Duration"
+            
+            empty_state: "No data available"
+            loading: "Loading..."
+          
+          # Filters
+          filters:
+            all_severities: "All Severities"
+            all_modules: "All Modules"
+            all_statuses: "All Statuses"
+            filter_by_severity: "Filter by Severity"
+            filter_by_module: "Filter by Module"
+            filter_by_status: "Filter by Status"
+            search_vulnerabilities: "Search vulnerabilities..."
+          
+          # Pagination
+          pagination:
+            previous: "Previous"
+            next: "Next"
+            page_info: "Page %{current} of %{total}"
+            items_per_page: "Items per page"
+          
+          # Dashboard
+          dashboard:
+            title: "Security Dashboard"
+            overview: "Security Overview"
+            recent_activity: "Recent Activity"
+            quick_stats: "Quick Statistics"
+            security_score: "Security Score"
+            last_scan_date: "Last Scan"
+            next_scheduled_scan: "Next Scheduled Scan"
+            total_scans_performed: "Total Scans Performed"
+            average_scan_duration: "Average Scan Duration"
+            most_common_issues: "Most Common Issues"
+            security_trends: "Security Trends"
+          
+          # Reports
+          reports:
+            executive_summary: "Executive Summary"
+            technical_details: "Technical Details"
+            remediation_guide: "Remediation Guide"
+            risk_assessment: "Risk Assessment"
+            compliance_status: "Compliance Status"
+            generated_on: "Generated on"
+            scan_summary: "Scan Summary"
+            findings_overview: "Findings Overview"
+            detailed_findings: "Detailed Findings"
+            appendix: "Appendix"
